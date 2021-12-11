@@ -1,0 +1,65 @@
+{
+    "$schema": "https://json.schemastore.org/template",
+    "author": "Francesco Bicciato",
+    "classifications": ["Web","MVC"],
+    "identity": "WebApiTemplate",
+    "name": "WebApi Template from Francesco Bicciato",
+    "shortName": "FBWebApi",
+    "sourceName": "WebApiTemplate",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "preferNameDirectory": true,
+    "symbols": {
+        "Framework":{
+            "type": "parameter",
+            "description": "Target Framework",
+            "datatype": "choice",
+            "choices": [
+                {"choice": "net5.0"},
+                {"choice": "net6.0"}
+            ],
+            "defaultValue": "net5.0",
+            "replaces": "{TargetFramework}"
+        },
+        "Namespace":{
+            "type": "parameter",
+            "description": "Namespace",                        
+            "datatype": "text",            
+            "defaultValue": "WebApiTemplate",
+            "replaces": "{WebApiTemplate}"
+        },
+
+        "EnableSwaggerSupport":{
+            "type": "parameter",
+            "description": "Enables swagger support",
+            "datatype": "bool",
+            "defaultValue":"true"
+
+        },
+        "InscludeDevAppsettings":{
+            "type": "parameter",
+            "description": "Include Appsettings.Development.json file",
+            "datatype": "bool",
+            "defaultValue":"true"
+        }
+    },
+    "sources": [
+        {
+            "modifiers": [
+                { 
+                    "condition": "(!InscludeDevAppsettings)",
+                    "exclude": [
+                        "WebApiTemplate/appsettings.Development.json"
+                    ]
+                }
+            ]       
+        }
+    ]
+    
+
+
+    
+    
+}
